@@ -10,6 +10,7 @@ REPORT_DIR = BASE_DIR + '\\report\\'
 
 # 配置浏览器驱动
 driver_type = 'Chrome'
+# driver_type = 'chrome-headless'
 
 # 配置运行的url
 url = ""
@@ -21,7 +22,7 @@ failedRun = '2'
 max_failedRun = '5'
 
 # 配置运行测试目录
-run_path = "./project/"
+run_path = "./test_res/"
 
 
 @pytest.fixture(scope='function')
@@ -156,6 +157,7 @@ def browser():
 
     if driver_type == 'Chrome':
         driver = webdriver.Chrome()
+        driver.implicitly_wait(5)
 
     elif driver_type == 'chrome-headless':
         chrome_options = Options()
@@ -174,6 +176,6 @@ def browser():
 @pytest.fixture(scope='session', autouse=True)
 def browser_close():
     yield driver
-    time.sleep(2)
+    time.sleep(20)
     driver.quit()
     print('test end。。。。')

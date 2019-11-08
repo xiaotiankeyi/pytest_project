@@ -1,4 +1,4 @@
-import logging
+import logging, os
 
 
 def handle():
@@ -10,13 +10,13 @@ def handle():
     # 2、Filter对象：不常用，略
 
     # 3、Handler对象：接收logger传来的日志，然后控制输出
-    h1 = logging.FileHandler('runLog.log', 'w', encoding='utf8')  # 打印到文件
+    h1 = logging.FileHandler(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'runLog.log'), 'w', encoding='utf8')  # 打印到文件
     h2 = logging.StreamHandler()  # 打印到终端
 
     # 4、Formatter对象：日志格式
     output_1 = logging.Formatter(
-        "%(asctime)s\%(module)s\%(levelname)s\%(levelno)s\%(threadName)s:%(thread)d\%(filename)s:%(lineno)d: "
-        "%(message)s", datefmt='%Y-%m-%d %H:%M:%S %p', )
+        "%(asctime)s\%(module)s\%(levelname)s\%(levelno)s\%(threadName)s:%(thread)d\%(filename)s:%(lineno)d:%(message)s",
+        datefmt='%Y-%m-%d %H:%M:%S %p')
 
     output_2 = logging.Formatter('%(asctime)s, %(levelname)s :  %(message)s',
                                  datefmt='%Y-%m-%d %H:%M:%S %p', )

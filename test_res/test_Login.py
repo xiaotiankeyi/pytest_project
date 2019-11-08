@@ -1,14 +1,11 @@
-import os, sys
 import pytest
-from page.LoginPage import Loginelement
-from public.elementwait import findelement
+from page.loginpage import Loginelement
+from public.element import elementwait
 from selenium.webdriver.common.by import By
 from public.Logging import handle
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '\\page')
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '\\public')
-
 logger = handle()
+
 
 @pytest.mark.Login
 class TestLogin():
