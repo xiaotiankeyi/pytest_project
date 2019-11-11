@@ -7,6 +7,7 @@ from public.Logging import handle
 
 class Testdelposting():
     def test_case(self, browser, Login):
+        """删除帖子"""
         obj = delposting(browser)
         num = obj.postnum.text
         obj.python.click()

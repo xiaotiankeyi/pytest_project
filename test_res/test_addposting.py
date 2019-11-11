@@ -25,7 +25,7 @@ class Testposting():
         logger.info('点击发送')
         obj.send_box.click()
 
-        msg = alertelement(obj.driver)
+        msg = alertelement(obj.driver, 'ok')
         assert msg == '发表新主题必须要有文章标题'
 
     def test_case2(self, browser):
@@ -42,7 +42,7 @@ class Testposting():
         logger.info('点击发送')
         obj.send_box.click()
 
-        msg = alertelement(obj.driver)
+        msg = alertelement(obj.driver, 'ok')
         assert msg == '发表文章必须要有文章内容'
 
     def test_case3(self, browser, Login):

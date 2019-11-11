@@ -9,8 +9,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_DIR = BASE_DIR + '\\report\\'
 
 # 配置浏览器驱动
-driver_type = 'Chrome'
-# driver_type = 'chrome-headless'
+# driver_type = 'Chrome'
+driver_type = 'chrome-headless'
 
 # 配置运行的url
 url = ""
